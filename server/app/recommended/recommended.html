@@ -1,0 +1,20 @@
+<div ng-controller="RecommendedController">
+    <div ng-show="recommended.overdue">
+        <h2>Overdue</h2>
+        <div ng-repeat="call in recommended.overdue">
+            {{call.contact.name}}
+        </div>
+    </div>
+    <div ng-show="recommended.today">
+        <h2>Today</h2>
+        <div ng-repeat="call in recommended.today">
+            {{call.contact.name}}
+        </div>
+    </div>
+    <div ng-show="recommended.soon">
+        <h2>Soon</h2>
+        <div ng-repeat="call in recommended.soon">
+            {{call.contact.name}}
+        </div>
+    </div>
+</div>

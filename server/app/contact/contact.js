@@ -25,7 +25,7 @@ angular.module("callYourFolksApp")
     var formatted, did_call;
     var day_index = 0 - number_of_days_back;
     while (startDate <= endDate) {
-        formatted = $filter('date')(startDate,"yyyy-MM-dd")
+        formatted = $filter('date')(startDate,"yyyy-MM-dd");
         call = get_call_on_date(formatted);
         day = {
             date: formatted,
