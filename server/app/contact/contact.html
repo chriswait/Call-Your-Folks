@@ -1,0 +1,13 @@
+<div ng-controller="ContactController">
+        <div class="contact_details">
+            <h2 class="contact_name">{{contact.name}}</h2>
+            <div class="contact_name">Every {{contact.period}} days</div>
+        </div>
+        <div>
+            <div class="contact_calls" layout="row">
+                <div class="day" ng-class="{called:day.call.happened, recommended:day.call.recommended, missed:(day.call.recommended && day.day_index<0), today:day.day_index==0}" ng-repeat="day in days" ng-click="toggle_call(day);" flex layout="column">
+                    <div>{{day.day_index}}</div>
+                </div>
+            </div>
+        </div>
+</div>

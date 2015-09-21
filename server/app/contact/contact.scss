@@ -1,0 +1,25 @@
+contact>div {
+    padding: 20px;
+}
+
+.contact_details {
+    margin: 5px;
+}
+
+.called {
+    background-color: lightgreen;
+}
+.recommended {
+    background-color: lightblue;
+}
+.missed {
+    background-color: lightcoral;
+}
+.today {
+    border: 2px solid black !important;
+}
+
+.day {
+    padding: 10px;
+    border: 1px solid black;
+}
