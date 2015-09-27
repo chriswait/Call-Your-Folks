@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from rest_framework.renderers import JSONRenderer
 from .models import *
+from callyourfolks.serializers import CallSerializer
+from datetime import date, timedelta
 
 def index(request):
     return render(request, 'callyourfolks/base.html')
@@ -55,6 +57,24 @@ def recommended(request):
     if not(request.GET.get('userId')): return HttpResponse("0") 
     userId = request.GET.get('userId')
     user = User.objects.get(id=userId)
-    recommended_calls = user.get_recommended_calls()
+
+    today_date = date.today()
+    overdue = []
+    today = []
+    soon = []
+    for call in user.calls.filter(recommended=True):
+        if (call.date < today_date and call.happened==False):
+            overdue.append(CallSerializer(call).data)
+        elif (call.date == today_date):
+            today.append(CallSerializer(call).data)
+        else:
+            soon.append(CallSerializer(call).data)
+
+    recommended_calls = {
+        "overdue": overdue,
+        "today": today,
+        "soon": soon,
+    }
+
     json = JSONRenderer().render(recommended_calls)
     return HttpResponse(json)
