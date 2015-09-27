@@ -46,9 +46,10 @@ angular.module("callYourFolksApp")
             contactId: contactId,
             userId: userId,
         };
-        call = get_call_on_date(day.date);
-        if (call) url = 'delete_call';
-        else url = 'log_call';
+        if ((typeof day.call != "undefined") && (day.call.happened))
+            url = 'delete_call';
+        else
+            url = 'log_call';
         $http({url:url, method:"GET",params:request_params})
         .then(function(data) {
             console.log(data);

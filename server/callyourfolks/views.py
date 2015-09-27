@@ -20,8 +20,10 @@ def log_call(request):
 
     existing_call = Call.objects.filter(user=user, contact=contact, date=date)
     if (existing_call):
-        print "TEST"
-        return HttpResponse("0") 
+        if (existing_call[0].happened):
+            return HttpResponse("0") 
+        else:
+            existing_call.delete()
 
     call = Call(user=user, contact=contact, date=date, happened=True, recommended=False)
     call.save()

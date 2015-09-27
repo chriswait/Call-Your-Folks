@@ -31,7 +31,6 @@ angular.module("callYourFolksApp")
     $scope.$watch(function() {
         return ContactsService.contact_list.contacts;
     }, function(newValue, oldValue, scope) {
-        console.log("CHANGE");
         console.log(newValue);
         if (newValue != oldValue) {
             $scope.contacts = newValue;
