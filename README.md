@@ -1,5 +1,5 @@
 # CallYourFolks
-An app to remind you to keep up correspondence with the people you love — Edit
+An app to remind you to keep up correspondence with the people you love
 
 Since moving to Australia, I've found it challenging to keep in touch with people back home. I was thinking about projects which try to use technology to solve what is ultimately a human problem, and thought this would be a good candidate for falling into the same trap.
 
